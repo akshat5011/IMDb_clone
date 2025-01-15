@@ -10,7 +10,15 @@ export default function DarkModeSwitch(params) {
 
   useEffect(() => setMounted(true), []);
 
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  // const currentTheme = (theme === "system" ? systemTheme : theme);
+
+  // Determine the current theme only after the component has mounted
+  const currentTheme = mounted
+    ? theme === "system"
+      ? systemTheme
+      : theme
+    : "light"; // Default to "light" or any other fallback
+    
   // if the page is not mounted(not loaded completely) we get a case like light mode on client side and dark on
   // server side which causes a mismatch and gives hydration error
 
@@ -34,5 +42,3 @@ export default function DarkModeSwitch(params) {
     </div>
   );
 }
-
-
