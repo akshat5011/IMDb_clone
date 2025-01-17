@@ -17,7 +17,7 @@ export default function DarkModeSwitch(params) {
     ? theme === "system"
       ? systemTheme
       : theme
-    : "light"; // Default to "light" or any other fallback
+    : "dark"; // Default to "dark" or any other fallback
     
   // if the page is not mounted(not loaded completely) we get a case like light mode on client side and dark on
   // server side which causes a mismatch and gives hydration error
